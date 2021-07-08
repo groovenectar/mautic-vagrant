@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "debian/contrib-stretch64"
+  config.vm.box = "bento/ubuntu-20.04"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
   #Virtual-Box provisioning
   config.vm.define "virtualbox" do |vb|
     # Disable 'vagrant-vbguest' auto update
-    vb.vbguest.auto_update = false
+    #vb.vbguest.auto_update = false
     # Setup localhost configuration and MariaDB database
     vb.vm.provision "LocalHost-Setup", type: "shell", preserve_order: true, path: "./provisioners/localhost/localhost-setup.sh", sensitive: true, env: {
       "DBHOST" => "localhost", 
