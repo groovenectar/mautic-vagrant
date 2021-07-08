@@ -34,7 +34,7 @@ systemctl start apache2.service
 systemctl enable apache2.service
 
 # Install PHP
-apt-get install php libapache2-mod-php libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-tidy php-mysql php-cli php-mcrypt php-ldap php-zip php-curl php-sqlite3 php-amqplib php-imap -y
+apt-get install php libapache2-mod-php libapache2-mod-php php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-tidy php-mysql php-bcmath php-cli php-ldap php-zip php-curl php-sqlite3 php-amqplib php-imap -y
 
 sed -i "
     # Enable PHP Error Reporting
@@ -51,7 +51,7 @@ sed -i "
 
     # Set PHP Time Zone
     s|.*date.timezone =.*|date.timezone = /$TIMEZONE/|g;
-    " /etc/php/7.0/apache2/php.ini
+    " /etc/php/7.4/apache2/php.ini
 
 # Restart Apache2
 systemctl restart apache2.service
